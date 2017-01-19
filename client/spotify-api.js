@@ -17,7 +17,7 @@ class Main extends Component {
   }
 
   handleSearch(e) {
-    // lower rate limit w/o authentication, so only make a request if the user hits enter
+    // lower rate limit w/o authentication, so only make a request when the user hits enter
     if (e.key == 'Enter') {
       const query = e.target.value;
       let spotifyResponse;
@@ -44,7 +44,7 @@ class Main extends Component {
 
   filterResults(data) {
     const items = data.artists.items;
-    // keep results that have 1) have images, and 2) have matching height & width
+    // keep results that 1) have images, and 2) have matching height & width
     const filteredArtists = items.filter(item => {
       return item.images.length && (item.images[0].height == item.images[0].width);
     });
@@ -87,6 +87,7 @@ class Artist extends Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     const artist = this.props.artist;
     return (
